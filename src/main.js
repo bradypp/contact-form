@@ -3,7 +3,7 @@ import App from './App.vue';
 
 Vue.config.productionTip = false;
 
-// Register global components
+// Register global components (e.g. BaseButton etc.)
 const requireComponent = require.context(
   // Look for files in the components directory
   './components',

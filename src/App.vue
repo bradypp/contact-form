@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <Options :selectedTab="selectedTab" @updateTab="updateTab"/>
+    <h2>Get In Touch</h2>
+    <Options :selectedForm="selectedForm" @updateTab="updateTab" />
     <keep-alive>
-      <component :is="selectedTab"></component>
+      <component :is="selectedForm"/>
     </keep-alive>
   </div>
 </template>
@@ -12,6 +13,7 @@ import Options from '@/components/Options';
 import EnquiryForm from '@/components/EnquiryForm';
 import ReturnsForm from '@/components/ReturnsForm';
 import DeliveryForm from '@/components/DeliveryForm';
+import '@/styles/global.scss'
 
 export default {
   components: {
@@ -22,31 +24,14 @@ export default {
   },
   data() {
     return {
-      selectedTab: 'EnquiryForm',
+      selectedForm: 'EnquiryForm',
     };
   },
   methods: {
-    updateTab(selectedTab) {
-      this.selectedTab = selectedTab;
-      console.log(this.selectedTab);
+    updateTab(selectedForm) {
+      this.selectedForm = selectedForm;
+      console.log(this.selectedForm);
     },
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  width: 600px;
-  padding: 1rem;
-}
-
-label,
-input,
-textarea {
-  display: block;
-}
-</style>

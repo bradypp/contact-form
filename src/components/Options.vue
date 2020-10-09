@@ -1,35 +1,35 @@
 <template>
   <div class="options">
-    <div class="option">
+    <label class="option" :class="enquiryClass" for="enquiry-tab">
       <input
         id="enquiry-tab"
         value="EnquiryForm"
         type="radio"
-        v-model="localSelectedTab"
+        v-model="localSelectedForm"
         @change="onTabClick"
       />
-      <label for="enquiry-tab">Enquiry</label>
-    </div>
-    <div class="option">
+      Enquiry</label
+    >
+    <label class="option" :class="returnsClass" for="returns-tab">
       <input
         id="returns-tab"
         value="ReturnsForm"
         type="radio"
-        v-model="localSelectedTab"
+        v-model="localSelectedForm"
         @change="onTabClick"
       />
-      <label for="returns-tab">Returns</label>
-    </div>
-    <div class="option">
+      Returns</label
+    >
+    <label class="option" :class="deliveryClass" for="delivery-tab">
       <input
         id="delivery-tab"
         value="DeliveryForm"
         type="radio"
-        v-model="localSelectedTab"
+        v-model="localSelectedForm"
         @change="onTabClick"
       />
-      <label for="delivery-tab">Delivery</label>
-    </div>
+      Delivery</label
+    >
   </div>
 </template>
 
@@ -37,17 +37,28 @@
 export default {
   data() {
     return {
-      localSelectedTab: this.selectedTab,
+      localSelectedForm: this.selectedForm,
     };
   },
   props: {
-    selectedTab: {
+    selectedForm: {
       type: String,
       required: true,
       validator: function (value) {
         // The value must match one of these strings
         return ['DeliveryForm', 'EnquiryForm', 'ReturnsForm'].indexOf(value) !== -1;
       },
+    },
+  },
+  computed: {
+    deliveryClass() {
+      return this.selectedForm === 'DeliveryForm' && 'option--active';
+    },
+    enquiryClass() {
+      return this.selectedForm === 'EnquiryForm' && 'option--active';
+    },
+    returnsClass() {
+      return this.selectedForm === 'ReturnsForm' && 'option--active';
     },
   },
   methods: {
@@ -57,9 +68,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-input[type='radio'] {
-  display: none;
-}
-</style>

@@ -1,0 +1,136 @@
+:root {
+  --grey-dark: #333;
+  --grey: #666;
+  --grey-light: #ddd;
+  --green: #2cbe4e;
+  --green-light: #33ce57;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+#app {
+  overflow-x: hidden;
+  font-family: Lato, Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--grey-dark);
+  width: 450px;
+  margin: 1rem;
+}
+
+.options {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  min-height: 50px;
+  border: 1px solid var(--grey-light);
+  cursor: pointer;
+  transition: 0.25s all ease;
+
+  &:first-of-type {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  &:last-of-type {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &:not(:first-of-type) {
+    border-left: none;
+  }
+
+  &:hover {
+    background: var(--grey-light);
+  }
+
+  &--active {
+    background: var(--green);
+    color: #fff;
+    border: 1px solid var(--green);
+
+    &:hover {
+      background: var(--green-light);
+      border-color: var(--green-light);
+    }
+  }
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.field {
+  margin-bottom: 1.2rem;
+
+  label {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+  }
+
+  input {
+    margin-bottom: 0.5rem;
+  }
+
+  .tip {
+    color: var(--grey);
+    font-size: 0.9rem;
+  }
+}
+
+.required,
+h2,
+h3,
+.returns-link {
+  margin-bottom: 0.8rem;
+}
+
+label,
+input,
+textarea,
+.returns-link {
+  display: block;
+}
+
+.returns-link {
+  color: #f9b835;
+  font-size: 0.9rem;
+}
+
+input[type='text'],
+input[type='date'],
+textarea {
+  width: 100%;
+  font: 400 1rem Lato !important;
+  padding: 0.5rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid var(--grey-light);
+}
+
+textarea {
+  min-height: 180px;
+}
