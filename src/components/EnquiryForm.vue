@@ -1,18 +1,15 @@
 <template>
-  <form class="form" @submit="submitForm">
+  <AppForm class="form" :onSubmit="onSubmit" :validation="{}">
     <p class="required">All fields marked with * are required</p>
-    <div class="field">
-      <label for="email">Email Address*</label>
-      <input
-        id="email"
-        type="text"
-        name="email"
-        v-model.trim="email"
-        required
-        placeholder="example@email.com"
-      />
-      <p class="tip">We'll never share your email with anyone else</p>
-    </div>
+    <FormField
+      element="input"
+      type="text"
+      name="email"
+      v-model="email"
+      label="Email Address"
+      tip="We'll never share your email with anyone else"
+      placeholder="example@email.com"
+    />
     <div class="field">
       <label for="full-name">Full Name*</label>
       <input
@@ -34,12 +31,16 @@
         placeholder="Please enter your message"
       />
     </div>
-    <BaseButton type="submit">Submit</BaseButton>
-  </form>
+    <BaseButton type="button" @click="testing">Submit</BaseButton>
+  </AppForm>
 </template>
 
 <script>
+import FormField from './form/FormField';
+import AppForm from './form/AppForm';
+
 export default {
+  components: { AppForm, FormField },
   data() {
     return {
       email: '',
@@ -48,8 +49,11 @@ export default {
     };
   },
   methods: {
-    submitForm() {
+    onSubmit() {
       // TODO: send data
+    },
+    testing() {
+      console.log(this.email);
     },
   },
 };
