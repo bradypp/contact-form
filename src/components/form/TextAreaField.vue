@@ -14,6 +14,8 @@
 </template>
 
 <script>
+// TODO: make a field component that reduces copy & pasted code between fields
+
 import FieldWrapper from './FieldWrapper';
 
 export default {
