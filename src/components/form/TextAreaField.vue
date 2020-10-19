@@ -1,6 +1,6 @@
 <template>
   <FieldWrapper :label="label" :tip="tip" :error="error" v-slot="slotProps">
-    <input
+    <textarea
       :id="slotProps.id"
       :class="{ error: error }"
       :type="type"
