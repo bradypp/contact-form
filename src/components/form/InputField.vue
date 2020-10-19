@@ -2,7 +2,7 @@
   <FieldWrapper :label="label" :tip="tip" :error="error" v-slot="slotProps">
     <input
       :id="slotProps.id"
-      :class="{ error: error }"
+      :class="{ 'field--error': error }"
       :type="type"
       :name="name"
       :placeholder="placeholder"
