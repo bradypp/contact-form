@@ -52,7 +52,11 @@
 </template>
 
 <script>
+import BaseButton from './ui/BaseButton';
 export default {
+  components: {
+    BaseButton,
+  },
   data() {
     return {
       email: '',

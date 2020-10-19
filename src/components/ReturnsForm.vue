@@ -88,7 +88,14 @@
       <div v-if="purchaseLocation === 'retail'">
         <div class="field">
           <label for="location">Place of purchase*</label>
-          <input id="location" type="text" name="location" required placeholder="Store location" v-model.trim="storeLocation" />
+          <input
+            id="location"
+            type="text"
+            name="location"
+            required
+            placeholder="Store location"
+            v-model.trim="storeLocation"
+          />
         </div>
         <div class="field">
           <label for="date-of-purchase">Date of purchase*</label>
@@ -104,7 +111,13 @@
       </div>
       <div class="field" placeholder="Please enter your message">
         <label for="message">Details of fault*</label>
-        <textarea id="message" name="message" required  placeholder="Please enter more details about the fault" v-model.trim="message" />
+        <textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Please enter more details about the fault"
+          v-model.trim="message"
+        />
       </div>
       <BaseButton type="submit">Submit</BaseButton>
     </div>
@@ -120,7 +133,10 @@
 </template>
 
 <script>
+import BaseButton from './ui/BaseButton';
+
 export default {
+  components: { BaseButton },
   data() {
     return {
       purchaseLocation: '',
