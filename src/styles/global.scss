@@ -4,6 +4,7 @@
   --grey-light: #ddd;
   --green: #2cbe4e;
   --green-light: #33ce57;
+  --red: #e13c3c;
 }
 
 *,
@@ -96,9 +97,15 @@ input[type='radio'] {
     margin-bottom: 0.5rem;
   }
 
+  .tip,
+  .error {
+    font-size: 0.9rem;
+  }
   .tip {
     color: var(--grey);
-    font-size: 0.9rem;
+  }
+  .error {
+    color: var(--red);
   }
 }
 
